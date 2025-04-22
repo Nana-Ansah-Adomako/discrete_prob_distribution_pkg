@@ -2,7 +2,7 @@ import math
 import matplotlib.pyplot as plt
 
 def binom_pmf(x_values, n, p_list, plot=True):
-"""
+   """
    Description:
    ------------
     binom_pmf: compute and optionally plot the Binomial probability mass function.
