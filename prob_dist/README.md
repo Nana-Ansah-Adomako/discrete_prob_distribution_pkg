@@ -1,35 +1,88 @@
-### Discrete_pmf — A Python module for plotting PMFs of discrete distributions
-This module provides simple, customizable utilities for computing and visualizing Probability Mass Functions (PMFs) for commonly used discrete distributions:
+# Discrete PMF — Python Module for Plotting PMFs of Discrete Distributions
 
-Binomial
+**Discrete PMF** is a lightweight and easy-to-use Python module for computing and visualizing **Probability Mass Functions (PMFs)** of common discrete probability distributions. It is ideal for educators, data scientists, statisticians, and learners who want to visualize and interact with probability distributions in Python.
 
-Geometric
+---
 
-Negative Binomial
+## Supported Distributions
 
-Poisson
+- **Binomial Distribution**
+- **Geometric Distribution**
+- **Negative Binomial Distribution**
+- **Poisson Distribution**
 
-Each function supports plotting using matplotlib, and returns the computed PMF values for programmatic access.
+Each function:
+- Computes the PMF for a given distribution
+- Optionally generates a matplotlib stem plot
+- Returns the PMF values as a dictionary for further processing
 
-Requirements
-Python ≥ 3.6
+---
 
-matplotlib
+## Requirements
 
-Standard Library: math
+- **Python ≥ 3.6**
+- **matplotlib** (for plotting)
+- Standard Library: `math`
 
-Available Functions
-binom_pmf(x_values, n, p_list, plot=True)
-Compute and plot the Binomial Probability Mass Function.
+Install dependencies with:
 
-Parameters:
-x_values (List[int]): List of x-values at which to evaluate the PMF.
+```bash
+pip install matplotlib
+```
 
-n (int): Number of trials.
+Or if you're using [Poetry](https://python-poetry.org/):
 
-p_list (List[float]): List of success probabilities to evaluate.
+```bash
+poetry add matplotlib
+```
 
-plot (bool, default=True): Whether to display a PMF plot.
 
-Returns:
-Dict[float, List[float]]: Dictionary mapping each p to its corresponding PMF values (rounded to 5 decimal places).
+## Function Overview
+
+### 🔹 `binom_pmf(x_values, n, p_list, plot=True)`
+Compute and (optionally) plot the **Binomial** PMF.
+
+**Parameters:**
+- `x_values (List[int])`: Values of the random variable X (e.g., [0, 1, 2, ..., n])
+- `n (int)`: Number of trials
+- `p_list (List[float])`: List of success probabilities (e.g., [0.3, 0.7])
+- `plot (bool)`: If True, displays a matplotlib stem plot (default: `True`)
+
+**Returns:**
+- `Dict[float, List[float]]`: Mapping from each `p` to its list of PMF values.
+
+**Example:**
+```python
+from discrete_pmf import binom_pmf
+
+x = list(range(0, 6))
+n = 5
+p_values = [0.3, 0.7]
+
+binom_pmf(x_values=x, n=n, p_list=p_values, plot=True)
+```
+
+
+## 📚 Documentation
+
+Each function includes Python docstrings explaining:
+- Function purpose
+- Parameters and types
+- Return values
+- Example usage
+
+
+---
+
+
+## 📝 License
+
+MIT License. See `LICENSE` file for details.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or add.
+
+
