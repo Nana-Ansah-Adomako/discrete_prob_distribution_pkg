@@ -2,30 +2,29 @@ import math
 import matplotlib.pyplot as plt
 
 def binom_pmf(x_values, n, p_list, plot=True):
-   """
-   Description:
-   ------------
+    """
+    Description:
+    ------------
     binom_pmf: compute and optionally plot the Binomial probability mass function.
 
     Args:
-   ------
+    ------
         x_values (list[int]): Values of the random variable X (e.g., [0, 1, 2, ..., n]).
         n (int): Number of trials.
         p_list (list[float]): A list of probabilities of success (0 < p < 1).
         plot (bool): If True, plots the PMF using matplotlib.
 
     Returns:
-   ---------
+    ---------
         dict: Dictionary mapping each p to a list of PMF values at the given x_values.
 
-	from discrete_pmf import p_binom
+    Example:
+    --------
+    from discrete_pmf import p_binom
 
-	=======Example=======
-
-	x = list(range(0, 6))
-        p = [0.3, 0.7]
-	binom_pmf(x_values=x, n=5, p_list=p)
-
+    x = list(range(0, 6))
+    p = [0.3, 0.7]
+    binom_pmf(x_values=x, n=5, p_list=p)
     """
 
     results = {}
@@ -64,9 +63,8 @@ def binom_pmf(x_values, n, p_list, plot=True):
     return results 
 
 
-
 def geom_pmf(x_values, p_list, plot=True):
-"""
+    """
     Description:
     ------------
     geom_pmf: compute and optionally plot the Geometric probability mass function.
@@ -81,14 +79,14 @@ def geom_pmf(x_values, p_list, plot=True):
     ---------
         dict: Dictionary mapping each p to a list of PMF values at the given x_values.
 
-        from discrete_pmf import p_geom
+    Example:
+    --------
+    from discrete_pmf import p_geom
 
-        =======Example=======
-
-        x = list(range(1, 8))
-        p = [0.3, 0.5]
-        geom_pmf(x_values=x, p_list=p)
-"""
+    x = list(range(1, 8))
+    p = [0.3, 0.5]
+    geom_pmf(x_values=x, p_list=p)
+    """
 
     results = {}
     colors = plt.cm.viridis_r  # Choose a good colormap
@@ -103,7 +101,7 @@ def geom_pmf(x_values, p_list, plot=True):
                 print("The random variable 'X' cannot contain 0 values. Check the list of x_values")
                 return
             else:
-                geometric = (1-p) ** (x-1) * p
+                geometric = (1 - p) ** (x - 1) * p
                 result.append(round(geometric, 5))
             results[p] = result
 
@@ -131,7 +129,7 @@ def geom_pmf(x_values, p_list, plot=True):
 
 
 def neg_binom_pmf(x_values, r, p_list, plot=True):
-"""
+    """
     Description:
     ------------
     neg_binom_pmf: compute and optionally plot the Negative Binomial probability mass function.
@@ -147,15 +145,15 @@ def neg_binom_pmf(x_values, r, p_list, plot=True):
     ---------
         dict: Dictionary mapping each p to a list of PMF values at the given x_values.
 
-        from discrete_pmf import p_neg_binom
+    Example:
+    --------
+    from discrete_pmf import p_neg_binom
 
-        =======Example=======
-
-        x = list(range(5, 15))
-        p = [0.3, 0.5]
-        r = 5
-        neg_binom_pmf(x_values=x, r=r, p_list=p)
-"""
+    x = list(range(5, 15))
+    p = [0.3, 0.5]
+    r = 5
+    neg_binom_pmf(x_values=x, r=r, p_list=p)
+    """
 
     results = {}
     colors = plt.cm.viridis_r  # Choose a good colormap
@@ -167,8 +165,7 @@ def neg_binom_pmf(x_values, r, p_list, plot=True):
         result = []
         for x in x_values:
                 if x > r:
-                    neg_binomial = math.comb(x-1, r-1)*((1-p)**(x-r))*(p**r)
-                
+                    neg_binomial = math.comb(x - 1, r - 1) * ((1 - p) ** (x - r)) * (p ** r)
                 else:
                     neg_binomial = 0
                     
@@ -198,8 +195,8 @@ def neg_binom_pmf(x_values, r, p_list, plot=True):
     return results
 
 
-def poisson_pmf(x_values, lmd_list , plot=True):
-"""
+def poisson_pmf(x_values, lmd_list , plot=True): 
+    """
     Description:
     ------------
     poisson_pmf: compute and optionally plot the Poisson probability mass function.
@@ -214,14 +211,14 @@ def poisson_pmf(x_values, lmd_list , plot=True):
     ---------
         dict: Dictionary mapping each λ to a list of PMF values at the given x_values.
 
-        from discrete_pmf import p_poisson
+    Example:
+    --------
+    from discrete_pmf import p_poisson
 
-        =======Example=======
-
-        x = list(range(0, 10))
-        lambdas = [2, 5]
-        poisson_pmf(x_values=x, lmd_list=lambdas)
-"""
+    x = list(range(0, 10))
+    lambdas = [2, 5]
+    poisson_pmf(x_values=x, lmd_list=lambdas)
+    """
 
     results = {}
     colors = plt.cm.viridis_r  # Choose a good colormap
@@ -258,3 +255,4 @@ def poisson_pmf(x_values, lmd_list , plot=True):
         plt.show()
 
     return results
+
