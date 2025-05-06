@@ -61,7 +61,7 @@ def binom_pmf(x_values, n, p_list, plot=True):
         plt.tight_layout()
         plt.show()
 
-    return results 
+    return print(results)
 
 
 
@@ -127,7 +127,7 @@ def geom_pmf(x_values, p_list, plot=True):
         plt.tight_layout()
         plt.show()
 
-    return results
+    return print(results)
 
 
 def neg_binom_pmf(x_values, r, p_list, plot=True):
@@ -195,7 +195,7 @@ def neg_binom_pmf(x_values, r, p_list, plot=True):
         plt.tight_layout()
         plt.show()
 
-    return results
+    return print(results)
 
 
 def poisson_pmf(x_values, lmd_list , plot=True):
@@ -257,4 +257,4 @@ def poisson_pmf(x_values, lmd_list , plot=True):
         plt.tight_layout()
         plt.show()
 
-    return results
+    return print(results)
